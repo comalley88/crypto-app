@@ -2,6 +2,7 @@
 import { Col, Row, Statistic, Typography} from 'antd'
 import { Link } from 'react-router-dom'
 import React from 'react'
+//formats large numbers
 import millify from 'millify'
 
 import {useGetCryptosQuery} from '../services/cryptoApi'
@@ -9,8 +10,10 @@ import {Cryptocurrencies, News} from '../components/index'
 
 function Homepage() {
 
+    // to use info from the store need to add data to an object with isFetching (time taken to retrieve info), and hook onto the function useCryptosQuery
     const {data, isFetching} = useGetCryptosQuery(10)
 
+    // use ? syntax to avoid breaking the code
     const globalStats =  data?.data?.stats
 
     if (isFetching) return 'Loading...'
@@ -19,6 +22,7 @@ function Homepage() {
         <>
         <Typography.Title>Global Crypto Stats</Typography.Title>
         <Row>
+        {/**Ant design has 24 colums therfore each col takes up half the screen space. Statistic element used to display data*** */}
             <Col span={12}><Statistic title='Total Crytocurrencies' value={millify(globalStats?.total)}/></Col>
             <Col span={12}><Statistic title='Total Exchanges' value={millify(globalStats?.totalExchanges)}/></Col>
             <Col span={12}><Statistic title='Total Market Cap' value={millify(globalStats?.totalMarketCap)}/></Col>

@@ -11,6 +11,7 @@ const demoImage= 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=New
 
 function News({simplified}) {
     const [newsCategory, setnewsCategory] = useState('Cryptocurrency')
+    // rename data cryptoNews
     const {data: cryptoNews} = useGetCryptoNewsQuery({newsCategory, count: simplified ? 6 : 50 })
     const {data} = useGetCryptosQuery(100)
     console.log('news articles are', cryptoNews)
@@ -23,7 +24,7 @@ function News({simplified}) {
                    <Select
                    showSearch
                    className='select-news'
-                   placeholder='select a Crypto'
+                   placeholder='Select a Crypto'
                    optionFilterProp='children'
                    onChange={(value) => setnewsCategory(value)}
                    filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}

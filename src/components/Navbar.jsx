@@ -41,6 +41,7 @@ function Navbar() {
             {activeMenu && (
                 <Menu theme='dark'>
                     <Menu.Item icon={<HomeOutlined/>}>
+                    {/*************link to navigation for site using react router dom************* */}
                     <Link to='/'>Home</Link>
                     </Menu.Item>
                     <Menu.Item icon={<FundOutlined/>}>

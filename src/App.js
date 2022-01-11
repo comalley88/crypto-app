@@ -1,7 +1,9 @@
 import logo from './logo.svg';
+//import styling sheet
 import './App.css';
 import {Route, Link, Routes} from 'react-router-dom';
 import {Layout, Typography, Space} from 'antd'
+//using index.js in components folder allows us to import components on one line using {} notation using 'export {default as ...} from '...''
 import {Navbar, Cryptocurrencies, Exchanges, News, Cryptodetails, Homepage} from './components';
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
 
             <Route path="/cryptocurrencies" element={<Cryptocurrencies/>}/>
               
-
+    {/**********************************************:coinId means that the route becomes dynamic************************************** */}
             <Route path="/crypto/:coinId" element={<Cryptodetails/>}/>
 
 

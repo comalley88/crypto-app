@@ -4,14 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
+
+//import logic to run the store
 import store from './app/store'
 import { Provider } from 'react-redux';
+//import from antdesign to import all styling
 import "antd/dist/antd.css";
 
 
 
 ReactDOM.render(
+// wrap application in browserRouter so that it can be displayed
   <BrowserRouter>
+{/*** everything inside the app variable will have access to the store*/}
   <Provider store={store}>
   <App />
   </Provider>
